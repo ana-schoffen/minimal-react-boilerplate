@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import Configuration from "./Containers/configurations";
-import ItemForm from "./Containers/ItemForms";
-import ItemList from "./Containers/ItemList";
+import Configuration from "../containers/configurations";
+import ItemForm from "../containers/ItemForms";
+import ItemList from "../containers/ItemList";
 
 import "./App.scss";
 import { AppBar, Box, Tab, Tabs } from "@material-ui/core";
