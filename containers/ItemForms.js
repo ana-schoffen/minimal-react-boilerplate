@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import api from "../services/api";
 import { TextField, Button, Grid, FormControl } from "@material-ui/core";
 
 function ItemForm(props) {
   const [codigo, setCodigo] = useState("");
   const [descricao, setDescricao] = useState("");
 
-  const cadastrar = () => {
-    props.itens.push({ id: props.id, codigo: codigo, descricao: descricao });
-    props.setItens(props.itens);
-    props.setId(props.id + 1);
-  };
 
+  function cadastrar() {
+    const item = {
+      codigo: codigo,
+      descricao: descricao
+    }
+    api.createItem(item).then(() => {
+      alert('Item criado com sucesso!');
+    });
+  }
   return (
     <div>
       <Grid container spacing={4}>
