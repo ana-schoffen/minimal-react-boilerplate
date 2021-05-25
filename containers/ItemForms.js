@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import api from "../services/api";
 import { TextField, Button, Grid, FormControl } from "@material-ui/core";
 
-function ItemForm(props) {
+function ItemForm() {
   const [codigo, setCodigo] = useState("");
   const [descricao, setDescricao] = useState("");
 
@@ -11,10 +11,11 @@ function ItemForm(props) {
     const item = {
       codigo: codigo,
       descricao: descricao
-    }
+    };
     api.createItem(item).then(() => {
       alert('Item criado com sucesso!');
-    });
+    })
+      .catch((err) => { alert(`Erro: ${err.message}`) });
   }
   return (
     <div>

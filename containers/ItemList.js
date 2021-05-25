@@ -1,17 +1,16 @@
 import React from "react";
+import api from "../services/api";
 import { Typography, DataGrid } from "@material-ui/core";
 
-function ItemList(props) {
-  console.log(props.itens)
+function ItemList() {
+  const itens = api.getItems();
   return (
     <div>
-      {props.itens.map((item) => (
-        <div>
-          <Typography variant="subtitle1">{item.id}</Typography>
-          <Typography variant="subtitle1">{item.codigo}</Typography>
-          <Typography variant="subtitle1">{item.descricao}</Typography>
-        </div>
-      ))}
+      <div>
+        <Typography variant="subtitle1">{itens.id}</Typography>
+        <Typography variant="subtitle1">{itens.codigo}</Typography>
+        <Typography variant="subtitle1">{itens.descricao}</Typography>
+      </div>
     </div>
   );
 }
