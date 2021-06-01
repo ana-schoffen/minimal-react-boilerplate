@@ -10,7 +10,8 @@ function ItemForm() {
   function cadastrar() {
     const item = {
       codigo: codigo,
-      descricao: descricao
+      descricao: descricao,
+      ativo: true
     };
     api.createItem(item).then(() => {
       alert('Item criado com sucesso!');
