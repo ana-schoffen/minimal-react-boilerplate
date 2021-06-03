@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import api from "../services/api";
-import { TextField, Button, Grid, FormControl } from "@material-ui/core";
+import { TextField, Button, Grid, FormControl, FormControlLabel, Switch } from "@material-ui/core";
 
 function ItemForm() {
   const [codigo, setCodigo] = useState("");
   const [descricao, setDescricao] = useState("");
+  const [ativo, setAtivo] = useState(false);
 
 
   function cadastrar() {
     const item = {
       codigo: codigo,
       descricao: descricao,
-      ativo: true
+      ativo: ativo
     };
     api.createItem(item).then(() => {
       alert('Item criado com sucesso!');
@@ -37,15 +38,25 @@ function ItemForm() {
             onChange={(ev) => setDescricao(ev.target.value)}
           />
         </Grid>
-        <Grid item xs={12}>
-          <FormControl>
-            <Button variant="contined" color="primary" onClick={cadastrar}>
-              Salvar
-            </Button>
-          </FormControl>
+        <Grid item xs={6}>
+          <FormControlLabel
+            fullWidth
+            control={
+              <Switch
+                checked={ativo}
+                onChange={(ev) => setAtivo(ev.target.checked)}
+              />
+            }
+            label="Ativo"
+          />
         </Grid>
+        <FormControl>
+          <Button variant="contined" color="primary" onClick={cadastrar}>
+            Salvar
+          </Button>
+        </FormControl>
       </Grid>
-    </div>
+    </div >
   );
 }
 

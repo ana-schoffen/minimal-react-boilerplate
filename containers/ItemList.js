@@ -17,6 +17,7 @@ function ItemList() {
         <TableRow>
           <TableCell><b>Código</b></TableCell>
           <TableCell><b>Descrição</b></TableCell>
+          <TableCell><b>Ativo</b></TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -24,6 +25,7 @@ function ItemList() {
           <TableRow key={id}>
             <TableCell>{item.codigo}</TableCell>
             <TableCell>{item.descricao}</TableCell>
+            <TableCell>{(item.ativo) ? "Sim" : "Não"}</TableCell>
           </TableRow>
         ))}
       </TableBody>
